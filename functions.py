@@ -270,3 +270,15 @@ def best_sum(triangle):
                 maximum(triangle[index_row+1][index_column],triangle[index_row+1][index_column+1])
 
     return triangle[0][0]
+
+def is_leap(year):
+    """Returns True if the year is a leap one."""
+    if year%100:
+        if year%400:
+            return True
+        else:
+            return False
+    if year%4:
+        return True
+    else:
+        return False
