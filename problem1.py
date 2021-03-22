@@ -224,8 +224,22 @@ def problem11():
             if prod > max_prod:
                 max_prod = prod
 
-    print(max_prod)
+    print("Sol11: ", max_prod)
+    return max_prod
 
+def problem12():
+    """What is the value of the first triangle number to have over five hundred divisors?"""
+
+    n_factors = 0
+    triangle_number = 0
+    n = 1
+
+    while n_factors < 500:
+        triangle_number += n
+        n_factors = len(factors(triangle_number))
+        n += 1
+
+    print("Sol12: ", triangle_number, " - ", n_factors, "factors.")
 
 if __name__=="__main__":
     # problem1()
@@ -238,4 +252,5 @@ if __name__=="__main__":
     # problem8()
     # problem9()
     # problem10()
-    problem11()
+    # problem11()
+    problem12()
