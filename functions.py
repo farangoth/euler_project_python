@@ -219,5 +219,35 @@ def collatz(N):
             collatz_chain.append(collatz_chain[-1]//2)
         else:
             collatz_chain.append(3*collatz_chain[-1]+1)
-            
+
     return collatz_chain
+
+def litteraze(N):
+    """Returns the English spelling of an intergers up to 9999."""
+    dict_numbers = {
+    0:"",
+    1:"ONE", 2:"TWO", 3:"THREE", 4:"FOUR", 5:"FIVE", 6:"SIX", 7:"SEVEN", 8:"EIGHT", 9:"NINE",
+    10:"TEN", 11:"ELEVEN", 12:"TWELVE", 13:"THIRTEEN", 14:"FOURTEEN", 15:"FIFTEEN", 16:"SIXTEEN", 17:"SEVENTEEN", 18:"EIGHTEEN", 19:"NINETEEN",
+    20:"TWENTY", 30:"THIRTY", 40:"FORTY", 50:"FIFTY", 60:"SIXTY", 70:"SEVENTY", 80:"EIGHTY", 90:"NINETY",
+    100:"HUNDRED", 1000:"THOUSAND", "AND":"AND"
+    }
+
+    in_letters = []
+    digits = str(N)
+
+    if len(digits) >= 4:
+        in_letters.append(dict_numbers.get(int(digits[-4])))
+        in_letters.append(dict_numbers.get(1000))
+    if len(digits) >= 3:
+        if int(digits[-3]):
+            in_letters.append(dict_numbers.get(int(digits[-3])))
+            in_letters.append(dict_numbers.get(100))
+        if digits[-2:] != "00":
+            in_letters.append(dict_numbers.get("AND"))
+    if 0 < int(digits[-2:]) <= 20 :
+            in_letters.append(dict_numbers.get(int(digits[-2:])))
+    else:
+            in_letters.append(dict_numbers.get(int(digits[-2])*10))
+            in_letters.append(dict_numbers.get(int(digits[-1])))
+
+    return in_letters
