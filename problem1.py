@@ -381,6 +381,18 @@ def problem16():
     print("Sol16: ", sum)
     return sum
 
+def problem17():
+    """If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?"""
+
+    rangemax = 1000
+    total_letters = 0
+    for n in range(1, rangemax+1):
+        for word in litteraze(n):
+            total_letters += len(word)
+
+    print("Sol17: ", total_letters)
+
+
 if __name__=="__main__":
     # problem1()
     # problem2()
@@ -394,4 +406,5 @@ if __name__=="__main__":
     # problem10()
     # problem11()
     # problem14()
-    problem16()
+    # problem16()
+    problem17()
