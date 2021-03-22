@@ -194,3 +194,8 @@ def factorize_v1(N):
             prime_factors.update({prime: exposant-1})
 
     return prime_factors
+
+def is_pythagorean(a, b, c):
+    """Checks if the triplet respect a**2+b**2=c**2."""
+
+    return a**2 + b**2 == c**2
