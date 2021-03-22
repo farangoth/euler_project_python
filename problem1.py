@@ -402,6 +402,24 @@ def problem18():
     print("Sol18: ", solution18)
     return solution18
 
+def problem19():
+    """How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?"""
+
+    year = 1804
+    print(year, is_leap(year))
+
+def problem20():
+    """Find the sum of the digits in the number 100!."""
+
+    print(factorial(100))
+    solution20 = 0
+    for digit in str(factorial(100)):
+        solution20 += int(digit)
+
+    print("Sol20: ", solution20)
+    return solution20
+
+
 def problem67():
     """Find the maximum total from top to bottom of the triangle in triangle67.txt."""
 
@@ -433,4 +451,8 @@ if __name__=="__main__":
     # problem16()
     # problem17()
     # problem18()
-    problem67()
+    # problem19()
+    problem20()
+
+
+    # problem67()
