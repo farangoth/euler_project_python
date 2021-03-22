@@ -199,3 +199,12 @@ def is_pythagorean(a, b, c):
     """Checks if the triplet respect a**2+b**2=c**2."""
 
     return a**2 + b**2 == c**2
+
+def triangle_numbers(N):
+    """Generates the N-th first triangle numbers."""
+
+    list_triangle = [1]
+    for n in range(2, N):
+        list_triangle.append(list_triangle[-1]+n)
+
+    return list_triangle
