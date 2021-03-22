@@ -9,13 +9,15 @@ def is_multi(i, N):
 
 def recur_fibon(n):
     """Returns the nth term of Fibonacci sequence."""
+
     if n <= 1:
         return n
     else:
         return(recur_fibon(n-1) + recur_fibon(n-2))
 
 def fibo(N):
-    """Returns list of Fibonacci terms under N"""
+    """Returns list of Fibonacci terms under N."""
+
     fibo_terms = []
 
     n = 1
@@ -282,3 +284,12 @@ def is_leap(year):
         return True
     else:
         return False
+
+def factorial(N):
+    """Returns the factorial N!."""
+
+    result = 1
+    for n in range(1, N+1):
+        result *= n
+
+    return result
