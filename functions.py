@@ -8,6 +8,7 @@ def is_multi(i, N):
     return i%N == 0
 
 def recur_fibon(n):
+    """Returns the nth term of Fibonacci sequence."""
     if n <= 1:
         return n
     else:
@@ -40,6 +41,7 @@ def factors(N):
 
 def is_prime(N):
     """Returns True if the integer is prime."""
+
     if N <= 1:
         return False
     for n in range(2, N//2):
@@ -50,6 +52,7 @@ def is_prime(N):
 
 def list_primes_v1(N):
     """Returns prime numbers under N."""
+
     list_primes = []
 
     for n in range(N+1):
@@ -59,6 +62,8 @@ def list_primes_v1(N):
     return list_primes
 
 def is_palindrom(N):
+    """Returns True if the number is a palindrom, readable in both directions."""
+
     digits = [int(n) for n in str(N)]
 
     for pos in range(int(len(digits)/2)):
@@ -69,7 +74,9 @@ def is_palindrom(N):
     return bool
 
 def div_check(n, rangemax):
-    if all(n%p == 0 for p in list_primes_v1(rangemax)):
+    """Returns True if the number is divisible by all prime numbers under rangemax."""
+
+    if all(n%p == 0 for p in list_primes_crible(rangemax)):
         return True
     else:
         return False
@@ -94,11 +101,13 @@ def list_primes_crible(N):
     list_primes = list_numbers[list_is_prime]
     return list_primes
 
-def common_factors(list):
-    list_factors = [[] for n in list]
+def common_factors(*args):
+    """Returns a list of common factors."""
+
+    list_factors = [[] for n in args]
 
     i = 0
-    for n in list:
+    for n in args:
         list_factors[i] = factors(n)
         i += 1
 
@@ -106,17 +115,21 @@ def common_factors(list):
 
     return list_common_factors
 
-def pgcd_list_naif(list):
-    list_common_factors = common_factors(list)
+def pgcd_list_naif(*args):
+    """Returns the GCD of a list of numbers."""
+
+    list_common_factors = common_factors(args)
 
     pgcd = 1
     for fact in list_common_factors:
         if fact > pgcd:
             pgcd = fact
+
     return pgcd
 
 def euclide(a, b):
     """Returns the GCD of two intergers using Euclide."""
+
     if a < b:
         a, b = b, a
     while b:
@@ -126,6 +139,7 @@ def euclide(a, b):
 
 def pgcd(*args):
     """Returns the GCD of a list of integers."""
+
     gcd = euclide(args[0], args[1])
 
     for a in args:
@@ -134,15 +148,21 @@ def pgcd(*args):
     return gcd
 
 def calc_lcm(a, b):
+    """Returns the least common multiple of two intergers."""
+
     return int((a*b)/euclide(a,b))
 
 def lcm(*args):
+    """Returns the least common multiple of a list of intergers."""
+
     result = calc_lcm(args[0], args[1])
     for a in args:
         result = calc_lcm(a, result)
+
     return result
 
 def factorize_v1(N):
+    """Returns the prime factors and their exposants of an interger, in the shape of a dictionary."""
     primes = list_primes_crible(int(N/2)+1)
     prime_factors = dict()
 
@@ -157,4 +177,5 @@ def factorize_v1(N):
                 exposant += 1
                 reste = N%(prime**exposant)
             prime_factors.update({prime: exposant-1})
+
     return prime_factors
