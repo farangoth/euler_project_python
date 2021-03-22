@@ -28,23 +28,25 @@ def fibo(N):
 def factors(N):
     """Returns the list of factors for an integer N."""
 
-    list_factor = []
+    factors = []
 
     for p in range(1, int(np.sqrt(N)+1)):
         if N%p == 0:
-            list_factor.append(p)
-            list_factor.append(int(N/p))
+            factors.append(p)
+            factors.append(int(N/p))
 
-    list_factor.append(N)
-    return(list_factor)
+    factors.append(N)
+    return(factors)
 
 def is_prime(N):
     """Returns True if the integer is prime."""
-
-    if len(factors(N)) == 2:
-        return True
-    else:
+    if N <= 1:
         return False
+    for n in range(2, N//2):
+        if N%n == 0:
+            return False
+        else:
+            return True
 
 def list_primes_v1(N):
     """Returns prime numbers under N."""
@@ -53,7 +55,6 @@ def list_primes_v1(N):
     for n in range(N+1):
         if is_prime(n):
             list_primes.append(n)
-        print(list_primes)
 
     return list_primes
 
