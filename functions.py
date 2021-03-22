@@ -44,11 +44,13 @@ def is_prime(N):
 
     if N <= 1:
         return False
-    for n in range(2, N//2):
+    for n in range(2, N//2+1):
         if N%n == 0:
             return False
         else:
-            return True
+            continue
+
+    return True
 
 def list_primes_v1(N):
     """Returns prime numbers under N."""
@@ -99,6 +101,19 @@ def list_primes_crible(N):
 
     list_numbers = np.array(list_numbers)
     list_primes = list_numbers[list_is_prime]
+    return list_primes
+
+def list_primes_v2(N):
+    """Returns list of primes up to the N-th prime."""
+
+    list_primes = [2]
+    n = 2
+
+    while len(list_primes) < N :
+        n += 1
+        if is_prime(n):
+            list_primes.append(n)
+
     return list_primes
 
 def common_factors(*args):

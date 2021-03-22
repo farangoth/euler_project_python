@@ -103,8 +103,8 @@ def problem6():
 def problem7():
     """What is the 10 001st prime number?"""
 
-    N = 100001
-    primes = list_primes_v1(N)
+    N = 10001
+    primes = list_primes_v2(N)
 
     print(primes)
 
@@ -115,3 +115,4 @@ if __name__=="__main__":
     # problem4()
     # problem5()
     # problem6()
+    problem7()
