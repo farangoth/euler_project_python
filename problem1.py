@@ -369,6 +369,18 @@ def problem14():
 def problem15():
     pass
 
+def problem16():
+    """What is the sum of the digits of the number 2**1000?"""
+
+    digits = str(2**1000)
+
+    sum = 0
+    for digit in digits:
+        sum += int(digit)
+
+    print("Sol16: ", sum)
+    return sum
+
 if __name__=="__main__":
     # problem1()
     # problem2()
@@ -382,3 +394,4 @@ if __name__=="__main__":
     # problem10()
     # problem11()
     # problem14()
+    problem16()
