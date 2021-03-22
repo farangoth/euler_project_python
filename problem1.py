@@ -392,6 +392,15 @@ def problem17():
 
     print("Sol17: ", total_letters)
 
+def problem18():
+    """Find the maximum total from top to bottom of the triangle in triangle18.txt."""
+
+    with open("triangle18.txt", "r") as f:
+        triangle = [[int(num) for num in line.split(" ")] for line in f]
+
+    solution18 = best_sum(triangle)
+    print("Sol18: ", solution18)
+    return solution18
 
 if __name__=="__main__":
     # problem1()
@@ -407,4 +416,5 @@ if __name__=="__main__":
     # problem11()
     # problem14()
     # problem16()
-    problem17()
+    # problem17()
+    problem18()

@@ -251,3 +251,22 @@ def litteraze(N):
             in_letters.append(dict_numbers.get(int(digits[-1])))
 
     return in_letters
+
+def maximum(*args):
+    """Returns the maximum from a list."""
+    result = args[0]
+    for n in args:
+        if n > result:
+            result = n
+
+    return result
+
+def best_sum(triangle):
+    """Returns the best sum available for a path along the triangle."""
+
+    for index_row in range(len(triangle)-2, -1, -1):
+        for index_column in range(0, len(triangle[index_row])-1):
+            triangle[index_row][index_column] = triangle[index_row][index_column] + \
+                maximum(triangle[index_row+1][index_column],triangle[index_row+1][index_column+1])
+
+    return triangle[0][0]
