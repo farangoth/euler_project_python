@@ -131,6 +131,34 @@ def problem8():
     print("Sol8: ", prod_max)
     return prod_max
 
+def problem9():
+    """There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+    Find the product abc.
+    """
+
+    sum = 1000
+
+    for a in range(1,sum):
+        for b in range(1, sum-a):
+            c = sum - (a + b)
+            if is_pythagorean(a, b, c):
+                print("Sol9: ", a, b, c, " - ", a*b*c)
+                return a*b*c
+
+def problem10():
+    """Find the sum of all the primes below two million."""
+
+    rangemax = 2000000
+    primes = list_primes_crible(rangemax)
+    sum_primes = 0
+
+    for prime in primes:
+        sum_primes += prime
+
+    print("Sol10 :", sum_primes)
+    return sum_primes
+
+
 if __name__=="__main__":
     # problem1()
     # problem2()
@@ -139,4 +167,6 @@ if __name__=="__main__":
     # problem5()
     # problem6()
     # problem7()
-    problem8()
+    # problem8()
+    # problem9()
+    problem10()
