@@ -208,3 +208,16 @@ def triangle_numbers(N):
         list_triangle.append(list_triangle[-1]+n)
 
     return list_triangle
+
+def collatz(N):
+    """Returns the chain of Collatz starting fron N."""
+
+    collatz_chain = [N]
+
+    while(collatz_chain[-1] != 1):
+        if collatz_chain[-1]%2 == 0:
+            collatz_chain.append(collatz_chain[-1]//2)
+        else:
+            collatz_chain.append(3*collatz_chain[-1]+1)
+            
+    return collatz_chain
