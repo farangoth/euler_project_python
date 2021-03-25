@@ -41,6 +41,19 @@ def factors(N):
     factors.append(N)
     return(factors)
 
+def proper_divisors(N):
+    """Returns the list of proper divisors for an integer N."""
+
+    set_divisors = set()
+
+    set_divisors.add(1)
+    for p in range(2, int(np.sqrt(N)+1)):
+        if N%p == 0:
+            set_divisors.add(p)
+            set_divisors.add(int(N/p))
+
+    return(set_divisors)
+
 def is_prime(N):
     """Returns True if the integer is prime."""
 
@@ -293,3 +306,20 @@ def factorial(N):
         result *= n
 
     return result
+
+def sum_factors(N):
+    """Returns the sum of the factors of an integer."""
+
+    result = 0
+    for factor in proper_divisors(N): # all factors but himself
+        result += factor
+
+    return result
+
+def is_amicable(a, b):
+    """Checks if the two integers are amicables."""
+
+    return sum_factors(a) == b and sum_factors(b) == a
+
+def alphabet_sort(*args):
+    """Sort the list by alphabetic order."""
