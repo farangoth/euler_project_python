@@ -419,6 +419,39 @@ def problem20():
     print("Sol20: ", solution20)
     return solution20
 
+def problem21():
+    """Evaluate the sum of all the amicable numbers under 10000."""
+
+    rangemax = 10000
+    list_amicables = set()
+    sum_amicables = 0
+    for N in range(2, rangemax+1):
+        if any([is_amicable(N, b) and N != b for b in range(2, rangemax+1)]):
+            list_amicables.add(N)
+            sum_amicables += N
+
+    print(list_amicables)
+    print("Sol21: ", sum_amicables)
+    return sum_amicables
+
+def problem22():
+
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    solution22 = 0
+
+    with open("p022_names.txt", "r") as f:
+        names = [name.replace("\"", "") for name in f.read().split(",")]
+        names = sorted(names)
+
+        for name in names:
+            score_name = 0
+            for letter in name:
+                score_name += alphabet.index(letter) + 1
+            solution22 += (names.index(name)+1)*score_name
+
+    print("Sol22: ", solution22)
+    return solution22
+
 
 def problem67():
     """Find the maximum total from top to bottom of the triangle in triangle67.txt."""
