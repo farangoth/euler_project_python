@@ -298,6 +298,40 @@ def is_leap(year):
     else:
         return False
 
+def days_gap(date1, date2):
+    """Returns the numbers of days beteween date1 and date2 - [yyyy, mm, dd]."""
+
+    months = {1:  31,
+              2:  28,
+              3:  31,
+              4:  30,
+              5:  31,
+              6:  30,
+              7:  31,
+              8:  31,
+              9:  30,
+              10: 31,
+              11: 30,
+              12: 31
+              }
+
+    # order the dates
+    if date1 == date2:
+        return 0
+    if date1 < date2:
+        date_early = date1
+        date_late = date2
+    else:
+        date_early = date2
+        date_late = date1
+
+    pass
+
+def which_day():
+    """Returns the day of a date [yyyy, mm, dd]."""
+
+    week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satruday", "Sunday"]
+
 def factorial(N):
     """Returns the factorial N!."""
 
