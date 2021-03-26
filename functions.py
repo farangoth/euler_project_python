@@ -372,3 +372,15 @@ def is_perfect(N):
     """Check if the integer is a perfect number ie. sum(divisors(n)) = n."""
 
     return sum_factors(N) == N
+
+def is_abundant(N):
+    """Checks if an integer is abundant."""
+
+    return sum_factors(N) > N
+
+def get_abundant_numbers(N):
+    """Returns all abundant numbers under an integer."""
+
+    abundant_numbers = [n for n in range(1,N+1) if is_abundant(n)]
+
+    return abundant_numbers
