@@ -118,6 +118,19 @@ def list_primes_crible(N):
     list_primes = list_numbers[list_is_prime]
     return list_primes
 
+def prime_sieve(N):
+    """Returns Euratosthene crible for integers under N."""
+
+    # Create a list of as many True as there is uneven numbers under N.
+    sieve = [True] * (N//2)
+
+    for n in range(3, int(N**1/2)+1,2):
+        if sieve[n//2]:
+            # Replace True by False for all the multiple
+            sieve[n*n//2::n] = [False] * ((N-n*n-1)//(2*n)+1)
+
+    return [2] + [2*n+1 for n in range(1,N//2) if sieve[n]]
+
 def list_primes_v2(N):
     """Returns list of primes up to the N-th prime."""
 
