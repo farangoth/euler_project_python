@@ -44,15 +44,15 @@ def factors(N):
 def proper_divisors(N):
     """Returns the list of proper divisors for an integer N."""
 
-    set_divisors = set()
+    divisors = set()
 
-    set_divisors.add(1)
+    divisors.add(1)
     for p in range(2, int(np.sqrt(N)+1)):
         if N%p == 0:
-            set_divisors.add(p)
-            set_divisors.add(int(N/p))
+            divisors.add(p)
+            divisors.add(int(N/p))
 
-    return(set_divisors)
+    return(divisors)
 
 def is_prime(N):
     """Returns True if the integer is prime."""
