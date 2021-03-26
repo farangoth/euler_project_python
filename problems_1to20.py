@@ -478,6 +478,21 @@ def problem23():
 
     print("Sol23: ", solution23)
 
+def problem25():
+    pass
+
+def problem25():
+    """What is the index of the first term in the Fibonacci sequence to contain 1000 digits?"""
+
+    n_digits = 1000
+    fibonacci = [1, 1]
+
+    while(len(str(fibonacci[-1])) < n_digits):
+        fibonacci.append(fibonacci[-1]+fibonacci[-2])
+
+    print("Sol24: ", len(fibonacci))
+
+
 def problem67():
     """Find the maximum total from top to bottom of the triangle in triangle67.txt."""
 
@@ -510,7 +525,12 @@ if __name__=="__main__":
     # problem17()
     # problem18()
     # problem19()
-    problem20()
+    # problem20()
+    # problem21()
+    # problem22()
+    # problem23()
+    problem25()
+
 
 
     # problem67()
