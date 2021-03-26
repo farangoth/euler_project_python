@@ -368,5 +368,7 @@ def is_amicable(a, b):
 
     return sum_factors(a) == b and sum_factors(b) == a
 
-def alphabet_sort(*args):
-    """Sort the list by alphabetic order."""
+def is_perfect(N):
+    """Check if the integer is a perfect number ie. sum(divisors(n)) = n."""
+
+    return sum_factors(N) == N
