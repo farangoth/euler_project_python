@@ -384,3 +384,13 @@ def get_abundant_numbers(N):
     abundant_numbers = [n for n in range(1,N+1) if is_abundant(n)]
 
     return abundant_numbers
+
+def get_fibo(n, n1, n2):
+    """Returns the n-th first terms of Fibonacci sequence."""
+
+    fibonacci = [n1, n2]
+
+    while(len(fibonacci) < n):
+        fibonacci.append(fibonacci[-1] + fibonacci[-2])
+
+    return fibonacci
