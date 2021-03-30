@@ -492,6 +492,32 @@ def problem25():
 
     print("Sol24: ", len(fibonacci))
 
+def problem27():
+
+    rangemax = 1000
+    max_primes_sequences = 0
+    a_max = 0
+    b_max = 0
+    primes_sequence = 0
+    n=0
+
+    for a in range(-1*rangemax, rangemax):
+        for b in range(-1*(rangemax+1), rangemax+1):
+            n = 0
+            primes_sequence = 0
+            while(is_prime(quadratic(n, a, b))):
+                n += 1
+                primes_sequence += 1
+
+            if primes_sequence > max_primes_sequences:
+                max_primes_sequences = primes_sequence
+                a_max = a
+                b_max = b
+
+    solution27 = [a_max*b_max]
+
+    print("Sol27: ", a_max, b_max, "generate", max_primes_sequences, "\n", "product: ", solution27)
+    return solution27
 
 def problem67():
     """Find the maximum total from top to bottom of the triangle in triangle67.txt."""
