@@ -519,6 +519,19 @@ def problem27():
     print("Sol27: ", a_max, b_max, "generate", max_primes_sequences, "\n", "product: ", solution27)
     return solution27
 
+def problem28():
+
+    # Building the diagonal
+    diagonal = [3]
+    while(len(diagonal) < 2000):
+        diagonal.append(diagonal[-1]+2*(len(diagonal)//4 + 1))
+
+    solution28 = 1
+    for number in diagonal:
+        solution28 += number
+
+    print("Sol28: ", solution28)
+    return solution28
 def problem67():
     """Find the maximum total from top to bottom of the triangle in triangle67.txt."""
 
