@@ -532,6 +532,21 @@ def problem28():
 
     print("Sol28: ", solution28)
     return solution28
+def problem29():
+
+    max_a = 100
+    max_b = 100
+
+    powers = set()
+    for a in range(2, max_a+1):
+        for b in range(2, max_b+1):
+            powers.add(a**b)
+
+    print(powers)
+    solution29 = len(powers)
+    print("Sol29: ", solution29)
+    return solution29
+
 def problem67():
     """Find the maximum total from top to bottom of the triangle in triangle67.txt."""
 
