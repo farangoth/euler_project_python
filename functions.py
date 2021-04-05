@@ -13,7 +13,7 @@ def recur_fibon(n):
     if n <= 1:
         return n
     else:
-        return(recur_fibon(n-1) + recur_fibon(n-2))
+        return (recur_fibon(n - 1) + recur_fibon(n - 2))
 
 
 def fibo(N):
@@ -21,24 +21,24 @@ def fibo(N):
     fibo_terms = []
 
     n = 1
-    while(recur_fibon(n) < N):
-        fibo_terms.append(recur_fibon(n+1))
+    while (recur_fibon(n) < N):
+        fibo_terms.append(recur_fibon(n + 1))
         n += 1
 
-    return(fibo_terms)
+    return (fibo_terms)
 
 
 def factors(N):
     """Return the list of factors for an integer N."""
     factors = []
 
-    for p in range(1, int(np.sqrt(N)+1)):
+    for p in range(1, int(np.sqrt(N) + 1)):
         if N % p == 0:
             factors.append(p)
-            factors.append(int(N/p))
+            factors.append(int(N / p))
 
     factors.append(N)
-    return(factors)
+    return (factors)
 
 
 def proper_divisors(N):
@@ -46,19 +46,19 @@ def proper_divisors(N):
     divisors = set()
 
     divisors.add(1)
-    for p in range(2, int(np.sqrt(N)+1)):
+    for p in range(2, int(np.sqrt(N) + 1)):
         if N % p == 0:
             divisors.add(p)
-            divisors.add(int(N/p))
+            divisors.add(int(N / p))
 
-    return(divisors)
+    return (divisors)
 
 
 def is_prime(N):
     """Return True if the integer is prime."""
     if N <= 1:
         return False
-    for n in range(2, N//2+1):
+    for n in range(2, N // 2 + 1):
         if N % n == 0:
             return False
         else:
@@ -71,7 +71,7 @@ def list_primes_v1(N):
     """Return prime numbers under N."""
     list_primes = []
 
-    for n in range(N+1):
+    for n in range(N + 1):
         if is_prime(n):
             list_primes.append(n)
 
@@ -82,8 +82,8 @@ def is_palindrom(N):
     """Check if the number is a palindrom, readable in both directions."""
     digits = [int(n) for n in str(N)]
 
-    for pos in range(int(len(digits)/2)):
-        if digits[pos] == digits[-pos-1]:
+    for pos in range(int(len(digits) / 2)):
+        if digits[pos] == digits[-pos - 1]:
             continue
         else:
             return False
@@ -100,15 +100,15 @@ def div_check(n, rangemax):
 
 def list_primes_crible(N):
     """Return Euratosthene crible for integers under N."""
-    list_numbers = [n for n in range(2, N+1)]
+    list_numbers = [n for n in range(2, N + 1)]
     list_is_prime = [True for n in list_numbers]
 
     for n in list_numbers:
-        if list_is_prime[n-2]:
-            list_is_prime[n-2] = True
+        if list_is_prime[n - 2]:
+            list_is_prime[n - 2] = True
             i = 2
-            while(i*n < N+1):
-                list_is_prime[n*i-2] = False
+            while (i * n < N + 1):
+                list_is_prime[n * i - 2] = False
                 i += 1
         else:
             continue
@@ -121,14 +121,14 @@ def list_primes_crible(N):
 def prime_sieve(N):
     """Return Euratosthene crible for integers under N."""
     # Create a list of as many True as there is uneven numbers under N.
-    sieve = [True] * (N//2)
+    sieve = [True] * (N // 2)
 
-    for n in range(3, int(N**1/2)+1, 2):
-        if sieve[n//2]:
+    for n in range(3, int(N**1 / 2) + 1, 2):
+        if sieve[n // 2]:
             # Replace True by False for all the multiple
-            sieve[n*n//2::n] = [False] * ((N-n*n-1)//(2*n)+1)
+            sieve[n * n // 2::n] = [False] * ((N - n * n - 1) // (2 * n) + 1)
 
-    return [2] + [2*n+1 for n in range(1, N//2) if sieve[n]]
+    return [2] + [2 * n + 1 for n in range(1, N // 2) if sieve[n]]
 
 
 def list_primes_v2(N):
@@ -153,8 +153,11 @@ def common_factors(*args):
         list_factors[i] = factors(n)
         i += 1
 
-    list_common_factors = {fact for sublist in list_factors for fact in sublist
-                           if all(fact in sublist for sublist in list_factors)}
+    list_common_factors = {
+        fact
+        for sublist in list_factors for fact in sublist
+        if all(fact in sublist for sublist in list_factors)
+    }
 
     return list_common_factors
 
@@ -193,7 +196,7 @@ def pgcd(*args):
 
 def calc_lcm(a, b):
     """Return the least common multiple of two intergers."""
-    return int((a*b)/euclide(a, b))
+    return int((a * b) / euclide(a, b))
 
 
 def lcm(*args):
@@ -207,7 +210,7 @@ def lcm(*args):
 
 def factorize_v1(N):
     """Return prime factors and exposants."""
-    primes = list_primes_crible(int(N/2)+1)
+    primes = list_primes_crible(int(N / 2) + 1)
     prime_factors = dict()
 
     for prime in primes:
@@ -220,7 +223,7 @@ def factorize_v1(N):
             while reste == 0:
                 exposant += 1
                 reste = N % (prime**exposant)
-            prime_factors.update({prime: exposant-1})
+            prime_factors.update({prime: exposant - 1})
 
     return prime_factors
 
@@ -234,7 +237,7 @@ def triangle_numbers(N):
     """Generate the N-th first triangle numbers."""
     list_triangle = [1]
     for n in range(2, N):
-        list_triangle.append(list_triangle[-1]+n)
+        list_triangle.append(list_triangle[-1] + n)
 
     return list_triangle
 
@@ -243,11 +246,11 @@ def collatz(N):
     """Return the chain of Collatz starting fron N."""
     collatz_chain = [N]
 
-    while(collatz_chain[-1] != 1):
+    while (collatz_chain[-1] != 1):
         if collatz_chain[-1] % 2 == 0:
-            collatz_chain.append(collatz_chain[-1]//2)
+            collatz_chain.append(collatz_chain[-1] // 2)
         else:
-            collatz_chain.append(3*collatz_chain[-1]+1)
+            collatz_chain.append(3 * collatz_chain[-1] + 1)
 
     return collatz_chain
 
@@ -303,7 +306,7 @@ def litteraze(N):
     if 0 < int(digits[-2:]) <= 20:
         in_letters.append(dict_numbers.get(int(digits[-2:])))
     else:
-        in_letters.append(dict_numbers.get(int(digits[-2])*10))
+        in_letters.append(dict_numbers.get(int(digits[-2]) * 10))
         in_letters.append(dict_numbers.get(int(digits[-1])))
 
     return in_letters
@@ -321,8 +324,8 @@ def maximum(*args):
 
 def best_sum(triangle):
     """Return the best sum available for a path along the triangle."""
-    for index_row in range(len(triangle)-2, -1, -1):
-        for index_column in range(0, len(triangle[index_row])-1):
+    for index_row in range(len(triangle) - 2, -1, -1):
+        for index_column in range(0, len(triangle[index_row]) - 1):
             triangle[index_row][index_column] = \
                 triangle[index_row][index_column] + \
                 maximum(triangle[index_row+1][index_column],
@@ -357,7 +360,7 @@ def which_day():
 def factorial(N):
     """Return the factorial N!."""
     result = 1
-    for n in range(1, N+1):
+    for n in range(1, N + 1):
         result *= n
 
     return result
@@ -389,7 +392,7 @@ def is_abundant(N):
 
 def get_abundant_numbers(N):
     """Return all abundant numbers under an integer."""
-    abundant_numbers = [n for n in range(1, N+1) if is_abundant(n)]
+    abundant_numbers = [n for n in range(1, N + 1) if is_abundant(n)]
 
     return abundant_numbers
 
@@ -398,7 +401,7 @@ def get_fibo(n, n1, n2):
     """Return the n-th first terms of Fibonacci sequence."""
     fibonacci = [n1, n2]
 
-    while(len(fibonacci) < n):
+    while (len(fibonacci) < n):
         fibonacci.append(fibonacci[-1] + fibonacci[-2])
 
     return fibonacci
@@ -409,10 +412,10 @@ def euclide_division(A, B):
     integer_part = A % B
     cycle = []
 
-    a, b = A % B*10, B
+    a, b = A % B * 10, B
 
-    while(not(a//b in cycle)):
-        cycle.append(a//b)
+    while (not (a // b in cycle)):
+        cycle.append(a // b)
         a = a % b * 10
 
     return integer_part, cycle
@@ -420,7 +423,7 @@ def euclide_division(A, B):
 
 def quadratic(n, a, b):
     """Return a quadratic form from parameters."""
-    return n**2 + a*n + b
+    return n**2 + a * n + b
 
 
 def is_sum_digits_to_power(N, p):
