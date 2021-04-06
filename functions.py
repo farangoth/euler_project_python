@@ -118,7 +118,7 @@ def list_primes_crible(N):
     return list_primes
 
 
-def prime_sieve(N):
+def get_sieve(N):
     """Return Euratosthene crible for integers under N."""
     # Create a list of as many True as there is uneven numbers under N.
     sieve = [True] * (N // 2)
