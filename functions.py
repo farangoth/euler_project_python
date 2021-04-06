@@ -434,3 +434,33 @@ def is_sum_digits_to_power(N, p):
         sum_digits += int(digit)**p
 
     return N == sum_digits
+
+
+def rotate(L, n):
+    """Rotate a list n-times."""
+    return L[n:] + L[:n]
+
+
+def get_circular_primes(N):
+    """Returns circular primes under N.
+    A circular prime is a prime which all
+    rotations of digits is still prime."""
+
+    circular_primes = []
+    primes = get_sieve(N)
+    for prime in primes:
+        if all([
+                int(rotate(str(prime), n)) in primes
+                for n in range(len(str(prime)))
+        ]):
+            circular_primes.append(prime)
+
+    return circular_primes
+
+
+def convert_decimal_to_base(N, base):
+    """Convert an integer in base 10 to another base."""
+    if N == 0:
+        return ''
+    else:
+        return convert_decimal_to_base(N // 2, base) + str(N % 2)
