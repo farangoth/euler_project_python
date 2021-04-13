@@ -1,4 +1,5 @@
-"""Mathematical functions for Euler project problems."""
+"""Mathematical functions to solve Euler problems.
+<http://euler-project.com>"""
 
 import numpy as np
 
@@ -25,7 +26,7 @@ def fibo(N):
         fibo_terms.append(recur_fibon(n + 1))
         n += 1
 
-    return (fibo_terms)
+    return fibo_terms
 
 
 def factors(N):
@@ -51,7 +52,7 @@ def proper_divisors(N):
             divisors.add(p)
             divisors.add(int(N / p))
 
-    return (divisors)
+    return divisors
 
 
 def is_prime(N):
@@ -118,16 +119,16 @@ def list_primes_crible(N):
     return list_primes
 
 
-def get_sieve(N):
+def get_primes_with_sieve(N):
     """Return Euratosthene crible for integers under N."""
     # Create a list of as many True as there is uneven numbers under N.
     sieve = [True] * (N // 2)
-
     for n in range(3, int(N**1 / 2) + 1, 2):
         if sieve[n // 2]:
             # Replace True by False for all the multiple
             sieve[n * n // 2::n] = [False] * ((N - n * n - 1) // (2 * n) + 1)
 
+    is_abundant
     return [2] + [2 * n + 1 for n in range(1, N // 2) if sieve[n]]
 
 
@@ -445,9 +446,8 @@ def get_circular_primes(N):
     """Returns circular primes under N.
     A circular prime is a prime which all
     rotations of digits is still prime."""
-
     circular_primes = []
-    primes = get_sieve(N)
+    primes = get_primes_with_sieve(N)
     for prime in primes:
         if all([
                 int(rotate(str(prime), n)) in primes
