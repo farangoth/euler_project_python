@@ -2,7 +2,7 @@
 
 import functions
 
-with open("triangle_67.txt", "r") as f:
+with open("p067_triangle.txt", "r") as f:
     triangle = [[int(num) for num in line.split(" ")] for line in f]
     for row in triangle:
         if len(row) != len(triangle):
