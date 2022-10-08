@@ -1,6 +1,8 @@
 """Mathematical functions to solve Euler problems.
 <http://euler-project.com>"""
 
+from operator import concat
+from typing import Concatenate
 import numpy as np
 
 
@@ -409,18 +411,21 @@ def get_fibo(n, n1, n2):
 
 
 def euclide_division(A, B):
-    """Return the integer part and the cycle from a euclide division."""
-    integer_part = A % B
+    """Returns the result of the division of A by B as a list of the digits of the denominators."""
+    a = A
+    list_rest = []
     cycle = []
 
-    a, b = A % B * 10, B
+    if a < B:
+            cycle.append(0)
+            a = a*10
 
-    while (not (a // b in cycle)):
-        cycle.append(a // b)
-        a = a % b * 10
+    while( not(a in list_rest) ):
+        list_rest.append(a)
+        cycle.append(a//B)
+        a = a%B * 10
 
-    return integer_part, cycle
-
+    return cycle
 
 def quadratic(n, a, b):
     """Return a quadratic form from parameters."""
@@ -464,3 +469,22 @@ def convert_decimal_to_base(N, base):
         return ''
     else:
         return convert_decimal_to_base(N // 2, base) + str(N % 2)
+
+def concatenated_product(p, N):
+    """Returns the conactenated product of p and range(1,N)."""
+
+    list_prod = [str(p*n) for n in range(1,N+1)]
+    
+    return int(''.join(list_prod))
+
+def is_pandigital(N, p):
+    """Returns True if all digit (1-p) are present in the integer N."""
+    
+    if len(str(N)) != p:
+        return False
+
+    for n in range(1, p+1):
+        if str(n) not in str(N):
+            return False
+    
+    return True
