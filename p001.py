@@ -1,4 +1,7 @@
+import time
 import functions as f
+
+start = time.time()
 
 list_multi = []
 
@@ -9,4 +12,7 @@ for i in range(1, 1000):
 
 solution1 = sum(list_multi)
 
+end = time.time()
+
 print("Sol1: ", solution1)
+print("time ", str(end-start))
