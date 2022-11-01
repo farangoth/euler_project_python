@@ -14,6 +14,5 @@ for p in range(1, 10000):
             break
         if f.is_pandigital(product, 9) and product > product_max:
             p_max, n_max, product_max = p, n, product
-            print(p_max, n_max, product_max)
 
 print(p_max, n_max, product_max)
