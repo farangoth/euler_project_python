@@ -1,8 +1,8 @@
 """Mathematical functions to solve Euler problems.
-<http://euler-project.com>"""
 
-from operator import concat
-from typing import Concatenate
+<http://euler-project.com>
+"""
+
 import numpy as np
 
 
@@ -411,21 +411,22 @@ def get_fibo(n, n1, n2):
 
 
 def euclide_division(A, B):
-    """Returns the result of the division of A by B as a list of the digits of the denominators."""
+    """Return division of A by B as a list of digits of the denominators."""
     a = A
     list_rest = []
     cycle = []
 
     if a < B:
-            cycle.append(0)
-            a = a*10
+        cycle.append(0)
+        a = a*10
 
-    while( not(a in list_rest) ):
+    while (not (a in list_rest)):
         list_rest.append(a)
         cycle.append(a//B)
-        a = a%B * 10
+        a = a % B * 10
 
     return cycle
+
 
 def quadratic(n, a, b):
     """Return a quadratic form from parameters."""
@@ -448,9 +449,11 @@ def rotate(L, n):
 
 
 def get_circular_primes(N):
-    """Returns circular primes under N.
+    """Return circular primes under N.
+
     A circular prime is a prime which all
-    rotations of digits is still prime."""
+    rotations of digits is still prime.
+    """
     circular_primes = []
     primes = get_primes_with_sieve(N)
     for prime in primes:
@@ -470,21 +473,21 @@ def convert_decimal_to_base(N, base):
     else:
         return convert_decimal_to_base(N // 2, base) + str(N % 2)
 
-def concatenated_product(p, N):
-    """Returns the conactenated product of p and range(1,N)."""
 
-    list_prod = [str(p*n) for n in range(1,N+1)]
-    
+def concatenated_product(p, N):
+    """Return the conactenated product of p and range(1,N)."""
+    list_prod = [str(p*n) for n in range(1, N+1)]
+
     return int(''.join(list_prod))
 
+
 def is_pandigital(N, p):
-    """Returns True if all digit (1-p) are present in the integer N."""
-    
+    """Return True if all digit (1-p) are present in the integer N."""
     if len(str(N)) != p:
         return False
 
     for n in range(1, p+1):
         if str(n) not in str(N):
             return False
-    
+
     return True
