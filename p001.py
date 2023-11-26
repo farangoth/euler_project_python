@@ -1,3 +1,4 @@
+"""Solving P1 from Euler porject."""
 import time
 import functions as f
 

@@ -19,10 +19,19 @@ def recur_fibon(n):
         return (recur_fibon(n - 1) + recur_fibon(n - 2))
 
 
+def recur_fibo2(n, a, b):
+    """Return the nth term of Fibonacci sequence.
+
+    Keyword Arguments:
+    n -- term to return
+    a -- first term
+    b -- second term
+    """
+
+
 def fibo(N):
     """Return list of Fibonacci terms under N."""
     fibo_terms = []
-
     n = 1
     while (recur_fibon(n) < N):
         fibo_terms.append(recur_fibon(n + 1))
