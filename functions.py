@@ -28,6 +28,7 @@ def recur_fibo2(n, a, b):
     b -- second term
     """
 
+recur_fibo2(n, a, b)
 
 def fibo(N):
     """Return list of Fibonacci terms under N."""
